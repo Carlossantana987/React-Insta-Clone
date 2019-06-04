@@ -1,8 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import CommentSection from "../CommentSection/CommentSection";
 
 const PostContainer = props => {
-  console.log(props);
   return (
     <div className="postContainerComp">
       {props.post.map(posting => (
@@ -22,6 +22,18 @@ const PostContainer = props => {
       ))}
     </div>
   );
+};
+
+PostContainer.propTypes = {
+  post: PropTypes.arrayOf(
+    PropTypes.shape({
+      thumbnailUrl: PropTypes.string.isRequired,
+      username: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      likes: PropTypes.number.isRequired,
+      timestamp: PropTypes.string.isRequired
+    })
+  )
 };
 
 export default PostContainer;
