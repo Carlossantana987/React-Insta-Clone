@@ -1,14 +1,12 @@
 import React from "react";
+import "./SearchBar.scss";
 
 const SearchBar = () => {
   return (
     <div className="searchBarComp">
       <div className="mainTitle">
-        <img
-          src="/static/bundles/es6/sprite_glyphs_c8c6b3ac563b.png/c8c6b3ac563b.png)"
-          alt="insta-logo"
-        />
-        Instagram{" "}
+        <img src="instagramlogo.jpg" alt="insta-logo" />
+        Instagram
       </div>
       <form>
         <input className="searchbar" type="text" placeholder="Search" />

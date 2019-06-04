@@ -1,0 +1,19 @@
+.postContainer {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.profileTag {
+  display: flex;
+  align-items: center;
+}
+
+.profileTag img {
+  border: 1px solid red;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin: 10px;
+}

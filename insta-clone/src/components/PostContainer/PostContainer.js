@@ -1,4 +1,5 @@
 import React from "react";
+import "./PostContainer.css";
 import PropTypes from "prop-types";
 import CommentSection from "../CommentSection/CommentSection";
 
@@ -12,12 +13,12 @@ const PostContainer = props => {
             <div> {posting.username}</div>
           </div>
           <img src={posting.imageUrl} alt="posted-pic" />
+          <div> heart messageBubble paperplane</div>
           <div>{posting.likes} likes</div>
           <div>{posting.timestamp}</div>
           <div>
             <CommentSection comments={posting.comments} />
           </div>
-          <input type="text" placeholder="Add Comment" />
         </div>
       ))}
     </div>

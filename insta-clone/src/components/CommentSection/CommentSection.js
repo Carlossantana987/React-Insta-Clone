@@ -1,4 +1,5 @@
 import React from "react";
+import "./CommentSection.css";
 import PropTypes from "prop-types";
 
 const CommentSection = props => {
@@ -6,10 +7,11 @@ const CommentSection = props => {
     <div>
       {props.comments.map(comment => (
         <div className="comment">
-          <h5>{comment.username}</h5>
+          <strong> {comment.username}</strong>
           {comment.text}
         </div>
       ))}
+      <input type="text" placeholder="Add Comment" />
     </div>
   );
 };
