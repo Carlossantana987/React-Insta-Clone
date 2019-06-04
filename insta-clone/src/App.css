@@ -1,9 +1,25 @@
+.postContainer {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.profileTag {
+  display: flex;
+  align-items: center;
+}
+
+.profileTag img {
+  border: 1px solid red;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin: 10px;
+}
+
+.searchBarComp {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
 }
