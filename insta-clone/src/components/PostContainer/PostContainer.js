@@ -1,11 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
-//import { faHeart } from "@fortawesome/free-regular-svg-icons";
-//import { faComment } from "@fortawesome/free-regular-svg-icons";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CommentSection from "../CommentSection/CommentSection";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faComment } from "@fortawesome/free-regular-svg-icons";
 
 class PostContainer extends React.Component {
+  state = {
+    likes: this.props.likes
+  };
+
+  addLike = e => {
+    e.preventDefault();
+    const newLike = {
+      likes: this.state.likes + 1
+    };
+    this.setState({ newLike });
+  };
+  clickHandler = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
   render() {
     return (
       <div className="post-container">
@@ -19,6 +36,20 @@ class PostContainer extends React.Component {
                   </header>
 
                   <img src={post.imageUrl} alt={post.id} />
+                  <div className="likesIcons">
+                    <div
+                      className="heartButton"
+                      name="newlike"
+                      onClick={this.clickHandler}
+                      value={this.state.newlike}
+                    >
+                      <FontAwesomeIcon icon={faHeart} />
+                    </div>
+
+                    <div>
+                      <FontAwesomeIcon icon={faComment} />
+                    </div>
+                  </div>
 
                   <section className="likebar">{post.likes} likes</section>
 
@@ -38,7 +69,20 @@ class PostContainer extends React.Component {
                   </header>
 
                   <img src={post.imageUrl} alt={post.id} />
+                  <div className="likesIcons">
+                    <div
+                      className="heartButton"
+                      name="newlike"
+                      onClick={this.clickHandler}
+                      value={this.state.newlike}
+                    >
+                      <FontAwesomeIcon icon={faHeart} />
+                    </div>
 
+                    <div>
+                      <FontAwesomeIcon icon={faComment} />
+                    </div>
+                  </div>
                   <section className="likebar">{post.likes} likes</section>
 
                   <CommentSection

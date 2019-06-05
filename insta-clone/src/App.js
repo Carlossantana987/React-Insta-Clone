@@ -21,7 +21,7 @@ class App extends React.Component {
   }
   searchFilter = e => {
     const filtered = this.state.data.filter(post =>
-      post.username.toLowerCase().includes(e.target.value.toLowerCase())
+      post.username.includes(e.target.value)
     );
     this.setState({ filteredPosts: filtered });
   };
