@@ -14,15 +14,17 @@ class App extends React.Component {
   }
 
   render() {
-    <div className="app">
-      <header className="searchBar">
-        <SearchBar />
-      </header>
+    return (
+      <div className="app">
+        <header className="searchBar">
+          <SearchBar />
+        </header>
 
-      <div className="postContainer">
-        <PostContainer data={this.state.data} />
+        <div className="postContainer">
+          <PostContainer data={this.state.data} />
+        </div>
       </div>
-    </div>;
+    );
   }
 }
 export default App;

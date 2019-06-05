@@ -1,9 +1,8 @@
 import React from "react";
 import "./PostContainer.scss";
-import PropTypes from "prop-types";
 import CommentSection from "../CommentSection/CommentSection";
 
-class PostContainer extends Components {
+class PostContainer extends React.Component {
   render() {
     return (
       <div className="post-container">
@@ -11,12 +10,15 @@ class PostContainer extends Components {
           return (
             <>
               <header>
-                <img src={"post.thumbnailUrl"} alt="thumbnail" />
+                <img src={post.thumbnailUrl} alt="thumbnail" />
                 <h3> {post.username}</h3>
               </header>
-              <img src={"post.imgaUrl"} alt="main-image" />
+              <img src={post.imageUrl} alt="postedPic" />
               <section className="likebar">{post.likes}</section>
-              <CommentSection />
+              <CommentSection
+                timestamp={post.timestamp}
+                comments={post.comments}
+              />
             </>
           );
         })}
