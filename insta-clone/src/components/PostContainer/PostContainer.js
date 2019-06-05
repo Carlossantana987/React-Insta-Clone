@@ -1,40 +1,28 @@
 import React from "react";
-import "./PostContainer.css";
+import "./PostContainer.scss";
 import PropTypes from "prop-types";
 import CommentSection from "../CommentSection/CommentSection";
 
-const PostContainer = props => {
-  return (
-    <div className="postContainerComp">
-      {props.post.map(posting => (
-        <div>
-          <div className="profileTag">
-            <img src={posting.thumbnailUrl} alt="profile-pic" />
-            <div> {posting.username}</div>
-          </div>
-          <img src={posting.imageUrl} alt="posted-pic" />
-          <div> heart messageBubble paperplane</div>
-          <div>{posting.likes} likes</div>
-          <div>{posting.timestamp}</div>
-          <div>
-            <CommentSection comments={posting.comments} />
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-PostContainer.propTypes = {
-  post: PropTypes.arrayOf(
-    PropTypes.shape({
-      thumbnailUrl: PropTypes.string.isRequired,
-      username: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      likes: PropTypes.number.isRequired,
-      timestamp: PropTypes.string.isRequired
-    })
-  )
-};
+class PostContainer extends Components {
+  render() {
+    return (
+      <div className="post-container">
+        {this.props.data.map(post => {
+          return (
+            <>
+              <header>
+                <img src={"post.thumbnailUrl"} alt="thumbnail" />
+                <h3> {post.username}</h3>
+              </header>
+              <img src={"post.imgaUrl"} alt="main-image" />
+              <section className="likebar">{post.likes}</section>
+              <CommentSection />
+            </>
+          );
+        })}
+      </div>
+    );
+  }
+}
 
 export default PostContainer;
