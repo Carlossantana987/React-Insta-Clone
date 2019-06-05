@@ -1,5 +1,8 @@
 import React from "react";
-import "./PostContainer.scss";
+import PropTypes from "prop-types";
+//import { faHeart } from "@fortawesome/free-regular-svg-icons";
+//import { faComment } from "@fortawesome/free-regular-svg-icons";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CommentSection from "../CommentSection/CommentSection";
 
 class PostContainer extends React.Component {
@@ -12,13 +15,16 @@ class PostContainer extends React.Component {
                 <>
                   <header>
                     <img src={post.thumbnailUrl} alt="thumbnail" />
-                    <h3> {post.username}</h3>
+                    <h3>{post.username}</h3>
                   </header>
-                  <img src={post.imageUrl} alt="postedPic" />
+
+                  <img src={post.imageUrl} alt={post.id} />
+
                   <section className="likebar">{post.likes} likes</section>
+
                   <CommentSection
-                    timestamp={post.timestamp}
                     comments={post.comments}
+                    timestamp={post.timestamp}
                   />
                 </>
               );
@@ -28,13 +34,16 @@ class PostContainer extends React.Component {
                 <>
                   <header>
                     <img src={post.thumbnailUrl} alt="thumbnail" />
-                    <h3> {post.username}</h3>
+                    <h3>{post.username}</h3>
                   </header>
-                  <img src={post.imageUrl} alt="postedPic" />
+
+                  <img src={post.imageUrl} alt={post.id} />
+
                   <section className="likebar">{post.likes} likes</section>
+
                   <CommentSection
-                    timestamp={post.timestamp}
                     comments={post.comments}
+                    timestamp={post.timestamp}
                   />
                 </>
               );
@@ -44,4 +53,16 @@ class PostContainer extends React.Component {
   }
 }
 
+PostContainer.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      comments: PropTypes.array.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      likes: PropTypes.number.isRequired,
+      thumbnailUrl: PropTypes.string.isRequired,
+      timestamp: PropTypes.string.isRequired,
+      username: PropTypes.string.isRequired
+    })
+  )
+};
 export default PostContainer;

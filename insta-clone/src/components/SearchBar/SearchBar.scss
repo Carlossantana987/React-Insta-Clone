@@ -1,5 +1,7 @@
-.searchBarComp {
+.topBar {
+  font-size: 40px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  margin: 20px 0px;
+  border: 1px solid red;
 }

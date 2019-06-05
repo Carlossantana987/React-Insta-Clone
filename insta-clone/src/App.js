@@ -7,7 +7,6 @@ import PostContainer from "./components/PostContainer/PostContainer";
 class App extends React.Component {
   state = {
     data: [],
-    search: " ",
     filteredPosts: []
   };
 
@@ -24,7 +23,7 @@ class App extends React.Component {
     const filtered = this.state.data.filter(post =>
       post.username.toLowerCase().includes(e.target.value.toLowerCase())
     );
-    this.setState({ filteredPostes: filtered });
+    this.setState({ filteredPosts: filtered });
   };
 
   render() {
@@ -40,7 +39,7 @@ class App extends React.Component {
         <div className="postContainer">
           <PostContainer
             data={this.state.data}
-            filteredPostes={this.state.filteredPosts}
+            filteredPosts={this.state.filteredPosts}
             searchFilter={this.searchFilter}
           />
         </div>

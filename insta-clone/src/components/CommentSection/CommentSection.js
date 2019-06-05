@@ -6,6 +6,7 @@ class CommentSection extends React.Component {
     comments: this.props.comments,
     newComment: " "
   };
+
   addNewComment = e => {
     e.preventDefault();
     const newComment = {
@@ -26,6 +27,7 @@ class CommentSection extends React.Component {
 
   render() {
     return (
+      <div>
         {this.props.comments.map(comment => {
           return (
             <>
