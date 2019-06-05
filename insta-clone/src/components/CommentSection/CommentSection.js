@@ -4,18 +4,19 @@ import "./CommentSection.scss";
 class CommentSection extends React.Component {
   state = {
     comments: this.props.comments,
-    newComment: " "
+    newComment: ""
   };
 
   addNewComment = e => {
     e.preventDefault();
     const newComment = {
-      username: "Carlos santana",
+      username: "Carlos",
       text: this.state.newComment
     };
+
     this.setState({
       comments: [...this.state.comments, newComment],
-      newComment: " "
+      newComment: ""
     });
   };
 
@@ -27,8 +28,8 @@ class CommentSection extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.props.comments.map(comment => {
+      <div className="comment-section">
+        {this.state.comments.map(comment => {
           return (
             <>
               <h3>{comment.username}</h3>
@@ -36,6 +37,7 @@ class CommentSection extends React.Component {
             </>
           );
         })}
+
         <p className="timestamp">{this.props.timestamp}</p>
         <form onSubmit={this.addNewComment}>
           <input
