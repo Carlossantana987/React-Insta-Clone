@@ -4,7 +4,7 @@ import "./CommentSection.scss";
 class CommentSection extends React.Component {
   state = {
     comments: this.props.comments,
-    newComment: ""
+    newComment: " "
   };
   addNewComment = e => {
     e.preventDefault();
@@ -14,7 +14,7 @@ class CommentSection extends React.Component {
     };
     this.setState({
       comments: [...this.state.comments, newComment],
-      newComment: ""
+      newComment: " "
     });
   };
 
@@ -26,7 +26,6 @@ class CommentSection extends React.Component {
 
   render() {
     return (
-      <div>
         {this.props.comments.map(comment => {
           return (
             <>

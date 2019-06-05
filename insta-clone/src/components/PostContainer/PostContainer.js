@@ -6,22 +6,39 @@ class PostContainer extends React.Component {
   render() {
     return (
       <div className="post-container">
-        {this.props.data.map(post => {
-          return (
-            <>
-              <header>
-                <img src={post.thumbnailUrl} alt="thumbnail" />
-                <h3> {post.username}</h3>
-              </header>
-              <img src={post.imageUrl} alt="postedPic" />
-              <section className="likebar">{post.likes}</section>
-              <CommentSection
-                timestamp={post.timestamp}
-                comments={post.comments}
-              />
-            </>
-          );
-        })}
+        {this.props.filteredPosts.length === 0
+          ? this.props.data.map(post => {
+              return (
+                <>
+                  <header>
+                    <img src={post.thumbnailUrl} alt="thumbnail" />
+                    <h3> {post.username}</h3>
+                  </header>
+                  <img src={post.imageUrl} alt="postedPic" />
+                  <section className="likebar">{post.likes} likes</section>
+                  <CommentSection
+                    timestamp={post.timestamp}
+                    comments={post.comments}
+                  />
+                </>
+              );
+            })
+          : this.props.filteredPosts.map(post => {
+              return (
+                <>
+                  <header>
+                    <img src={post.thumbnailUrl} alt="thumbnail" />
+                    <h3> {post.username}</h3>
+                  </header>
+                  <img src={post.imageUrl} alt="postedPic" />
+                  <section className="likebar">{post.likes} likes</section>
+                  <CommentSection
+                    timestamp={post.timestamp}
+                    comments={post.comments}
+                  />
+                </>
+              );
+            })}
       </div>
     );
   }

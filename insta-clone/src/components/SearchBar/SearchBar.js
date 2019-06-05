@@ -1,19 +1,18 @@
 import React from "react";
 import "./SearchBar.scss";
 
-const SearchBar = () => {
-  return (
-    <div className="searchBarComp">
-      <div className="mainTitle">
-        <img src="instagramlogo.jpg" alt="insta-logo" />
-        Instagram
-      </div>
-      <form>
-        <input className="searchbar" type="text" placeholder="Search" />
-      </form>
-      <div className="navIcon">compass heart person</div>
-    </div>
-  );
-};
+class SearchBar extends React.Component {
+  render() {
+    return (
+      <input
+        type="text"
+        onChange={this.props.searchFilter}
+        name="search"
+        // value={this.props.filtered}
+        placeholder="search"
+      />
+    );
+  }
+}
 
 export default SearchBar;
