@@ -1,7 +1,28 @@
 .topBar {
-  font-size: 40px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  border: 1px solid red;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 0px;
+
+  .navLeft {
+    display: flex;
+    align-items: center;
+
+    .instaLogo {
+      padding: 0px 10px 0px 0px;
+      border-right: 1px solid black;
+    }
+    img {
+      margin: 5px 0px 0px 10px;
+      padding: 0;
+      height: 60px;
+    }
+  }
+
+  .navRight {
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+  }
 }
