@@ -1,0 +1,19 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5% 38%;
+  padding: 10% 1%;
+
+  img {
+    margin: 3% 10%;
+    width: 80%;
+  }
+
+  button {
+    margin: 5% 0%;
+    width: 98%;
+    background: white;
+    color: grey;
+  }
+}
