@@ -1,0 +1,35 @@
+.post-container {
+  display: flex;
+  flex-direction: column;
+
+  .topPostPic {
+    border: 1px solid red;
+    padding: 1% 1%;
+    display: flex;
+    align-items: center;
+    .thumbnailPic {
+      border: 1px solid red;
+      width: 5%;
+      height: 8%;
+      border-radius: 100%;
+    }
+
+    h3 {
+      font-size: 100%;
+      margin: 0% 1%;
+    }
+  }
+
+  .likesIcons {
+    display: flex;
+
+    .heartButton {
+      padding: 1% 1%;
+      width: 6%;
+    }
+
+    .likeBar {
+      font-size: bold;
+    }
+  }
+}

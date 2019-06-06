@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faComment } from "@fortawesome/free-regular-svg-icons";
 
+import "./PostContainer.scss";
+
 class PostContainer extends React.Component {
   state = {
     likes: this.props.likes
@@ -30,12 +32,17 @@ class PostContainer extends React.Component {
           ? this.props.data.map(post => {
               return (
                 <>
-                  <header>
-                    <img src={post.thumbnailUrl} alt="thumbnail" />
+                  <div className="topPostPic">
+                    <img
+                      className="thumbnailPic"
+                      src={post.thumbnailUrl}
+                      alt="thumbnail"
+                    />
                     <h3>{post.username}</h3>
-                  </header>
+                  </div>
 
                   <img src={post.imageUrl} alt={post.id} />
+
                   <div className="likesIcons">
                     <div
                       className="heartButton"
@@ -43,11 +50,11 @@ class PostContainer extends React.Component {
                       onClick={this.clickHandler}
                       value={this.state.newlike}
                     >
-                      <FontAwesomeIcon icon={faHeart} />
+                      <FontAwesomeIcon icon={faHeart} size="2x" />
                     </div>
 
-                    <div>
-                      <FontAwesomeIcon icon={faComment} />
+                    <div className="heartButton">
+                      <FontAwesomeIcon icon={faComment} size="2x" />
                     </div>
                   </div>
 
@@ -69,14 +76,15 @@ class PostContainer extends React.Component {
                   </header>
 
                   <img src={post.imageUrl} alt={post.id} />
-                  <div className="likesIcons">
+
+                  <div className="hearAndMessage">
                     <div
                       className="heartButton"
                       name="newlike"
                       onClick={this.clickHandler}
                       value={this.state.newlike}
                     >
-                      <FontAwesomeIcon icon={faHeart} />
+                      <FontAwesomeIcon icon={faHeart} size="2x" />
                     </div>
 
                     <div>
