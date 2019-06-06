@@ -12,12 +12,12 @@ class Login extends React.Component {
 
   submitUsername = () => {
     const userSubmit = this.state.username;
-    localStorage.setItem("userSubmit", userSubmit);
+    localStorage.setItem("username", userSubmit);
   };
 
   render() {
     return (
-      <form onSubmit={this.userSubmit}>
+      <form className="login-form">
         <input
           className="usernameInput"
           name="username"

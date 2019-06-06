@@ -11,9 +11,9 @@ const withAuthenticate = PostsPage => LoginPage =>
 
     componentDidMount() {
       if (!localStorage.getItem("username")) {
-        this.setState({ loggedIn: true });
-      } else {
         this.setState({ loggedIn: false });
+      } else {
+        this.setState({ loggedIn: true });
       }
     }
     render() {
