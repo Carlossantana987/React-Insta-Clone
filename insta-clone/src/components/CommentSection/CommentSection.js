@@ -1,5 +1,20 @@
 import React from "react";
+import styled from "styled-components";
 import "./CommentSection.scss";
+
+const CommentWrapper = styled.div`
+  margin: 1% 0%;
+  display: flex;
+`;
+
+const UsersName = styled.div`
+  font-weight: 900;
+  margin: 0px 5px 0px 0px;
+`;
+
+const CommentText = styled.div`
+  font-weight: 500;
+`;
 
 class CommentSection extends React.Component {
   state = {
@@ -31,10 +46,10 @@ class CommentSection extends React.Component {
       <div className="commentSection">
         {this.state.comments.map(comment => {
           return (
-            <div className="commentWrapper">
-              <div className="commentUsername">{comment.username}</div>
-              <div className="commentText"> {comment.text}</div>
-            </div>
+            <CommentWrapper>
+              <UsersName>{comment.username}</UsersName>
+              <CommentText> {comment.text}</CommentText>
+            </CommentWrapper>
           );
         })}
 
