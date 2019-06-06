@@ -60,9 +60,7 @@ class SearchBar extends React.Component {
 
         <NavRight>
           <FontAwesomeIcon icon={faCompass} size="3x" />
-
           <FontAwesomeIcon icon={faHeart} size="3x" />
-
           <FontAwesomeIcon icon={faUser} size="3x" />
         </NavRight>
       </TopBar>

@@ -1,11 +1,48 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import CommentSection from "../CommentSection/CommentSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faComment } from "@fortawesome/free-regular-svg-icons";
 
 import "./PostContainer.scss";
+
+const PostWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 1% auto;
+`;
+
+const TopPostPic = styled.div`
+  margin: 5% 2% 2%;
+  display: flex;
+  align-items: center;
+`;
+
+const ThumbnailPic = styled.img`
+  width: 5%;
+  height: 8%;
+  border-radius: 100%;
+`;
+
+const TopUsername = styled.h3`
+  margin: 0% 1%;
+`;
+
+const BelowPostPic = styled.div`
+  margin: 0% 2%;
+`;
+
+const LikeIcons = styled.div`
+  display: flex;
+`;
+
+const HeartButton = styled.div`
+  padding: 1% 0%;
+  width: 6%;
+`;
 
 class PostContainer extends React.Component {
   state = {
@@ -27,37 +64,32 @@ class PostContainer extends React.Component {
 
   render() {
     return (
-      <div className="post-container">
+      <PostWrapper>
         {this.props.filteredPosts.length === 0
           ? this.props.data.map(post => {
               return (
                 <>
-                  <div className="topPostPic">
-                    <img
-                      className="thumbnailPic"
-                      src={post.thumbnailUrl}
-                      alt="thumbnail"
-                    />
-                    <h3>{post.username}</h3>
-                  </div>
+                  <TopPostPic>
+                    <ThumbnailPic src={post.thumbnailUrl} alt="thumbnail" />
+                    <TopUsername>{post.username}</TopUsername>
+                  </TopPostPic>
 
                   <img src={post.imageUrl} alt={post.id} />
 
-                  <div className="belowPostPic">
-                    <div className="likesIcons">
-                      <div
-                        className="heartButton"
+                  <BelowPostPic>
+                    <LikeIcons>
+                      <HeartButton
                         name="newlike"
                         onClick={this.clickHandler}
                         value={this.state.newlike}
                       >
                         <FontAwesomeIcon icon={faHeart} size="2x" />
-                      </div>
+                      </HeartButton>
 
-                      <div className="heartButton">
+                      <HeartButton>
                         <FontAwesomeIcon icon={faComment} size="2x" />
-                      </div>
-                    </div>
+                      </HeartButton>
+                    </LikeIcons>
 
                     <section className="likebar">{post.likes} likes</section>
 
@@ -65,44 +97,46 @@ class PostContainer extends React.Component {
                       comments={post.comments}
                       timestamp={post.timestamp}
                     />
-                  </div>
+                  </BelowPostPic>
                 </>
               );
             })
           : this.props.filteredPosts.map(post => {
               return (
                 <>
-                  <header>
-                    <img src={post.thumbnailUrl} alt="thumbnail" />
-                    <h3>{post.username}</h3>
-                  </header>
+                  <TopPostPic>
+                    <ThumbnailPic src={post.thumbnailUrl} alt="thumbnail" />
+                    <TopUsername>{post.username}</TopUsername>
+                  </TopPostPic>
 
                   <img src={post.imageUrl} alt={post.id} />
 
-                  <div className="hearAndMessage">
-                    <div
-                      className="heartButton"
-                      name="newlike"
-                      onClick={this.clickHandler}
-                      value={this.state.newlike}
-                    >
-                      <FontAwesomeIcon icon={faHeart} size="2x" />
-                    </div>
+                  <BelowPostPic>
+                    <LikeIcons>
+                      <HeartButton
+                        name="newlike"
+                        onClick={this.clickHandler}
+                        value={this.state.newlike}
+                      >
+                        <FontAwesomeIcon icon={faHeart} size="2x" />
+                      </HeartButton>
 
-                    <div>
-                      <FontAwesomeIcon icon={faComment} />
-                    </div>
-                  </div>
-                  <section className="likebar">{post.likes} likes</section>
+                      <HeartButton>
+                        <FontAwesomeIcon icon={faComment} size="2x" />
+                      </HeartButton>
+                    </LikeIcons>
 
-                  <CommentSection
-                    comments={post.comments}
-                    timestamp={post.timestamp}
-                  />
+                    <section className="likebar">{post.likes} likes</section>
+
+                    <CommentSection
+                      comments={post.comments}
+                      timestamp={post.timestamp}
+                    />
+                  </BelowPostPic>
                 </>
               );
             })}
-      </div>
+      </PostWrapper>
     );
   }
 }
