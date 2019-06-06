@@ -1,14 +1,15 @@
 .post-container {
   display: flex;
   flex-direction: column;
+  width: 50%;
+  margin: 1% auto;
 
   .topPostPic {
-    border: 1px solid red;
-    padding: 1% 1%;
+    margin: 5% 2% 2%;
     display: flex;
     align-items: center;
+
     .thumbnailPic {
-      border: 1px solid red;
       width: 5%;
       height: 8%;
       border-radius: 100%;
@@ -20,16 +21,15 @@
     }
   }
 
-  .likesIcons {
-    display: flex;
+  .belowPostPic {
+    margin: 0% 2%;
+    .likesIcons {
+      display: flex;
 
-    .heartButton {
-      padding: 1% 1%;
-      width: 6%;
-    }
-
-    .likeBar {
-      font-size: bold;
+      .heartButton {
+        padding: 1% 0%;
+        width: 6%;
+      }
     }
   }
 }

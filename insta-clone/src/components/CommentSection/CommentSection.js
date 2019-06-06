@@ -28,13 +28,13 @@ class CommentSection extends React.Component {
 
   render() {
     return (
-      <div className="comment-section">
+      <div className="commentSection">
         {this.state.comments.map(comment => {
           return (
-            <>
-              <h3>{comment.username}</h3>
-              <p>{comment.text}</p>
-            </>
+            <div className="commentWrapper">
+              <div className="commentUsername">{comment.username}</div>
+              <div className="commentText"> {comment.text}</div>
+            </div>
           );
         })}
 

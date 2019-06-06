@@ -43,27 +43,29 @@ class PostContainer extends React.Component {
 
                   <img src={post.imageUrl} alt={post.id} />
 
-                  <div className="likesIcons">
-                    <div
-                      className="heartButton"
-                      name="newlike"
-                      onClick={this.clickHandler}
-                      value={this.state.newlike}
-                    >
-                      <FontAwesomeIcon icon={faHeart} size="2x" />
+                  <div className="belowPostPic">
+                    <div className="likesIcons">
+                      <div
+                        className="heartButton"
+                        name="newlike"
+                        onClick={this.clickHandler}
+                        value={this.state.newlike}
+                      >
+                        <FontAwesomeIcon icon={faHeart} size="2x" />
+                      </div>
+
+                      <div className="heartButton">
+                        <FontAwesomeIcon icon={faComment} size="2x" />
+                      </div>
                     </div>
 
-                    <div className="heartButton">
-                      <FontAwesomeIcon icon={faComment} size="2x" />
-                    </div>
+                    <section className="likebar">{post.likes} likes</section>
+
+                    <CommentSection
+                      comments={post.comments}
+                      timestamp={post.timestamp}
+                    />
                   </div>
-
-                  <section className="likebar">{post.likes} likes</section>
-
-                  <CommentSection
-                    comments={post.comments}
-                    timestamp={post.timestamp}
-                  />
                 </>
               );
             })
