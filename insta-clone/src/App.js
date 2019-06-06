@@ -5,10 +5,6 @@ import LoginPage from "./components/Login/Login";
 import withAuthenticate from "./authentication/withAuthenticate";
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
   render() {
     return <ComponentFromWithAuthenticate />;
   }
